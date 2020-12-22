@@ -1,0 +1,119 @@
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.172-ea"
+            id="borderPane" fx:id="borderPane" fx:controller="sample.Controller" stylesheets="@CSS.css">
+    <center>
+        <GridPane maxWidth="350" maxHeight="100" alignment="TOP_CENTER">
+            <HBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label alignment="CENTER" text="Image Management Tools" visible="true" ></Label>
+            </HBox>
+        </GridPane>
+    </center>
+    <right>
+        <VBox styleClass="section" alignment="CENTER">
+            <GridPane alignment="CENTER" hgap="30" maxWidth="350" vgap="20">
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="30">
+                    <Button id="ButtonUpload" fx:id="ButtonUpload" alignment="CENTER" prefHeight="50" prefWidth="250"
+                            text="Choose Your Image" onAction="#imageProcessing">
+                    </Button>
+                </HBox>
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="30">
+                    <Button id="zoomin" fx:id="zoomin" prefHeight="50" prefWidth="350" text="ZoomIN"
+                            GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#ZoomIn" alignment="CENTER">
+                    </Button>
+                    <Button id="zoomout" fx:id="zoomout" prefHeight="50" prefWidth="350" text="ZoomOut"
+                            GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#ZoomOut" alignment="CENTER">
+                    </Button>
+                </HBox>
+                <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" spacing="20">
+                    <Button id="rotate" fx:id="rotate" prefHeight="50" prefWidth="350" text="Rotate"
+                            GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#Rotate" alignment="CENTER">
+                    </Button>
+                    <Button id="grayscale" fx:id="grayscale" prefHeight="50" prefWidth="350" text="GrayScale"
+                            GridPane.columnIndex="1" GridPane.rowIndex="0" onAction="#GreyScale" alignment="CENTER">
+                    </Button>
+                </HBox>
+                <HBox GridPane.rowIndex="3" GridPane.columnIndex="0" spacing="30">
+                    <Button id="revert" fx:id="revert" prefHeight="50" prefWidth="350" text="Revert"
+                            GridPane.columnIndex="0" GridPane.rowIndex="0" onAction="#Revert" alignment="CENTER">
+                    </Button>
+                </HBox>
+
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="4" spacing="20">
+
+                    <VBox GridPane.columnIndex="0" GridPane.rowIndex="1" spacing="10">
+
+                        <GridPane vgap="10" hgap="10">
+                            <ChoiceBox fx:id="choiceBox" id="choiceBox" prefHeight="30.0" value="Select" prefWidth="350"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0">
+                                <items>
+                                    <FXCollections fx:factory="observableArrayList">
+                                        <String fx:value="jpg"/>
+                                        <String fx:value="png"/>
+                                        <String fx:value="gif"/>
+                                    </FXCollections>
+                                </items>
+                            </ChoiceBox>
+
+                        </GridPane>
+
+                        <GridPane vgap="10" hgap="10" prefWidth="350">
+
+                            <TextField fx:id="textWidth" id="textWidth" prefWidth="170" promptText="Enter New Width"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+
+                            <TextField fx:id="textHeight" id="textHeight" prefWidth="170" promptText="Enter New Height"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                        </GridPane>
+
+                    </VBox>
+
+                </HBox>
+
+                <HBox GridPane.columnIndex="0" GridPane.rowIndex="5" spacing="20">
+                    <VBox>
+                        <Button id="ButtonConvert" fx:id="ButtonConvert" prefHeight="50" prefWidth="350"
+                                text="Convert  &amp; Save the Image"
+                                GridPane.columnIndex="0" GridPane.rowIndex="2" onAction="#ConvertImages"
+                                alignment="CENTER">
+                        </Button>
+                        <Label fx:id="imageSelected" id="DisplayMsg" text="Please Upload Your Image" prefWidth="100"
+                               maxWidth="200" visible="false"/>
+                    </VBox>
+                </HBox>
+
+
+                <columnConstraints>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+        </VBox>
+    </right>
+
+
+    <center>
+        <HBox GridPane.columnIndex="0" GridPane.rowIndex="0" spacing="20" alignment="CENTER">
+            <VBox>
+                <GridPane alignment="CENTER" maxWidth="300" maxHeight="300" vgap="20">
+                    <ImageView fx:id="imageview" fitHeight="300" fitWidth="300" pickOnBounds="true"
+                               preserveRatio="true"/>
+                </GridPane>
+            </VBox>
+        </HBox>
+
+        <GridPane styleClass="content-section" alignment="CENTER" hgap="30" minHeight="300" maxWidth="300"
+                  minWidth="300" vgap="20">
+            <Label fx:id="label_Header" id="label_Header"/>
+            <GridPane fx:id="gridpane" vgap="50" hgap="50"/>
+        </GridPane>
+    </center>
+
+
+</BorderPane>
+
